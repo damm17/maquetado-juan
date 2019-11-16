@@ -1,0 +1,146 @@
+/* 
+Gooogle Fonts 
+https://fonts.google.com/
+*/
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
+
+/* Estilos globales */
+* {
+    box-sizing:border-box;
+}
+
+body, html {
+    margin:0;
+    padding:0;
+    font-size:10px;
+    font-family: "Open Sans", sans-serif;
+    min-height: 1200px;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Layout */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    padding:1rem 10rem;
+    background:transparent;
+    position: fixed;
+    width:100%;
+    box-shadow:0 2px 5px rgba(0,0,0,.3);
+    /* Algo importante que no mencioné con respecto a fixed y que también aplica para absolute/relative en algunos casos. La propiedad z-index, define la posición del nuevo eje Z que se genera a partir de modificar el flow del documento. Por default, la página es 2D, las cosas caen una abajo de la otra y con los ejes X e Y alcanza. Pero al alterar el flow, los elementos se empiezan a solapar y se pierde referencia de quién va a arriba de quién. Por eso es importante definir el z-index de los elementos posicionados, en especial un fixed, para que siempre estén por encima de los demás. */
+    z-index: 99;
+}
+
+.logo {
+    width:15rem;
+}
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-link {
+    text-transform: uppercase;
+    text-decoration: none;
+    color:#fff;
+    padding:0 1rem;
+    text-shadow:1px 1px 3px rgba(0,0,0,.4);
+    font-size:1.4rem;
+}
+.main-content {
+    /*  GRADIENT GENERATOR 
+        https://cssgradient.io/
+        https://www.cssmatic.com/gradient-generator
+    */
+    background: rgba(156,255,206,1);
+    background: -moz-linear-gradient(top, rgba(156,255,206,1) 0%, rgba(86,150,222,0.6) 41%, rgba(50,42,97,0.8) 100%), url(../img/city.jpg);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(156,255,206,1)), color-stop(41%, rgba(86,150,222,0.6)), color-stop(100%, rgba(50,42,97,0.8))), url(../img/city.jpg);
+    background: -webkit-linear-gradient(top, rgba(156,255,206,1) 0%, rgba(86,150,222,0.6) 41%, rgba(50,42,97,0.8) 100%), url(../img/city.jpg);
+    background: -o-linear-gradient(top, rgba(156,255,206,1) 0%, rgba(86,150,222,0.6) 41%, rgba(50,42,97,0.8) 100%), url(../img/city.jpg);
+    background: -ms-linear-gradient(top, rgba(156,255,206,1) 0%, rgba(86,150,222,0.6) 41%, rgba(50,42,97,0.8) 100%),url(../img/city.jpg);
+    background: linear-gradient(to bottom, rgba(156,255,206,1) 0%, rgba(86,150,222,0.6) 41%, rgba(50,42,97,0.8) 100%), url(../img/city.jpg);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9cffce', endColorstr='#322a61', GradientType=0 );
+    background-size:cover;
+    background-position: center center;
+    min-height: 60rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:12rem 5rem 2rem;
+    color:#fff;
+    /* Clip-Path -> Propiedad para crear una especie de máscara de recorte sobre un objeto. Básicamente definís el área en la que querés que tu objeto se vea, y lo que sobre lo recorta.
+    Para este caso definimos un polígono de 4 vértices. Los pares de valores que ves son los puntos de partida de cada vértice (top left, top right, bottom right, bottom left).
+    En el ejemplo, nos interesa cambiar solamente el ángulo de abajo a la izquierda. "0 calc(100% - 5vw)" significa que para la pos X del vértice, vale 0 (pegado al borde izquierdo), y para la pos Y calcula el 100% del alto de la caja, menos 5% del ancho del viewport. Esto hace que el ángulo de inclinación se mantenga constante. La otra opción es ponerle un valor fijo en pixeles para la pos Y, de forma tal que lo que se va a mantener constante sea el espacio entre el vértice y el alto total de la caja. Dependiendo del diseño, servirá una u otra. 
+    Aclaración final: esta es una propiedad que no tiene total compatibilidad con navegadores, por lo cual es raro usarla en producción. Hay otros métodos un poco más vuelteros para conseguir el mismo efecto. Involucran SVG, o la propiedad transform con el valor Skew. Pero para esto también hay que hacer cambios en la estructura del HTML.
+    
+    Acá tenés un link con referencias a los distintos métodos que existen.
+    https://css-tricks.com/creating-non-rectangular-headers/
+     */
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 100%,
+        0 calc(100% - 5vw)
+    );
+}
+.main-content .main-title {
+    text-transform: uppercase;
+    font-size:3rem;
+    letter-spacing: 2px;
+    font-weight: 500;
+    margin:0;
+}
+.main-content .subtitle {
+    font-size:1.8rem;
+    margin:0;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.main-content p {
+    max-width: 50rem;
+    text-align: center;
+    font-size:1.4rem;
+    margin: 3rem 0;
+}
+.main-btn {
+    text-transform: uppercase;
+    color:#fff;
+    border:2px solid #fff;
+    padding:1rem;
+    display: block;
+    font-size:1.4rem;
+    margin:2rem 0;
+    transition:all 0.3s ease-in-out;
+}
+.main-btn:hover {
+    background:#fff;
+    color:#333;
+}
+.social {
+    display: flex;
+}
+.social a {
+    color:#fff;
+    font-size:3rem;
+    display: block;
+    padding:0 1rem;
+    transition: all 0.3s linear;
+}
+.social a.twitter:hover {
+    color:cyan;
+}
+.social a.facebook:hover {
+    color:darkblue;
+}
+.social a.google:hover {
+    color:darkred;
+}
