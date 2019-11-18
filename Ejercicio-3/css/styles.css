@@ -1,0 +1,43 @@
+/* Import de Variables */
+@import url("https://fonts.googleapis.com/css?family=Alata|Roboto:300,400,500,700&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+}
+
+body {
+  background: #fcff3e;
+}
+
+.header {
+  border: 1px solid #f31212;
+}
+
+.header nav {
+  padding: 2rem 0;
+}
+
+.header nav .nav-link {
+  color: #000;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+.gaming {
+  background: #ccc;
+  padding: 3rem 10rem;
+}
+
+.gaming-title {
+  color: red;
+}
+
+.gaming-desc {
+  color: green;
+}

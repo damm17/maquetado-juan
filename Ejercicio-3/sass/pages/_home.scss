@@ -1,0 +1,22 @@
+.header {
+    border:1px solid $rojo;
+    nav {
+        padding:2rem 0;
+        .nav-link {
+            color:$negro;
+            font-size:2rem;
+            text-decoration: none;
+        }
+    }
+}
+
+.gaming {
+    background:$gris;
+    padding:3rem 10rem;
+    &-title {
+        color:red;
+    }
+    &-desc {
+        color:green;
+    }
+}
